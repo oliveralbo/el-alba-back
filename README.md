@@ -72,7 +72,7 @@ Renombrar bbdd de desarrollo desde /config/config.js
 
 ## Controllers
 En la carpeta /controllers tenemos los métodos dinámicos, reutilizables y configurables de una lógica básica de CRUD. 
-En caso de necesitar otro tipo de logaritmo muy diferente se debe implementar otro modulo Controllers 
+En caso de necesitar otro tipo de algoritmo muy diferente se debe implementar otro modulo Controllers 
 
 
 Estos también se pueden separar por tipo de httpRequest para hacerlo más maniobrable.
