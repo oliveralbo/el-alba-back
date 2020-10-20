@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "4637678b-8423-4f9a-8e6e-d02346c49ae1",
+		"name": "Login-APIrest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST add user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "usuario",
+							"value": "aaaa",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "aaaaa",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "aaa@aaa.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ADMIN_ROLE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/usuario",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuario"
+					]
+				},
+				"description": "crea usuario mongo curso node"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT edit user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "AAAB",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/usuario/5f3af219f0b8bd3d135d6e36",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuario",
+						"5f3af219f0b8bd3d135d6e36"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "AAA",
+							"disabled": true
+						}
+					]
+				},
+				"description": "actualiza usuarios menos pass y google"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/usuario/5f3af225f0b8bd3d135d6e38",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuario",
+						"5f3af225f0b8bd3d135d6e38"
+					]
+				},
+				"description": "apirest usuario delete"
+			},
+			"response": []
+		},
+		{
+			"name": "GET get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login generate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "aaa@aaa.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET get user by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJzdGF0ZSI6dHJ1ZSwiX2lkIjoiNWYzYjAyOTQyMDMwYWQ0NmJlNGIyYjgwIiwibm9tYnJlIjoiYWFhYWEiLCJlbWFpbCI6ImFhYUBkZGRkLmNvbSIsIl9fdiI6MH0sImlhdCI6MTYwMTEzMzc1NiwiZXhwIjoxNjAyNzM0ODkzfQ.ATqR5kJRj_HshxukKvTGUGAaF4e-hso9XLn9Qzxdbz0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/usuario/5f6f6d0f1e969f19eb987422",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuario",
+						"5f6f6d0f1e969f19eb987422"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2400c48e-a8a3-4296-89c1-956aebaf885d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5e317b55-dcc3-43a0-a269-f55b560fa5d5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b4850306-08e7-4e97-923d-01a2300884af",
+			"key": "url",
+			"value": "http://localhost:3000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
