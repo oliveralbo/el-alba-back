@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-const Usuario = require("../models/usuario");
+const Usuario = require("../models/user");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "nombre email role";
-let objectRegistry = ["nombre", "email", "password", "role"];
+let configGet = "name surname email phone dni ";
+let objectRegistry = ["name", "surname", "email", "phone", "dni"];
 
 
 
