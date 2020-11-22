@@ -20,7 +20,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 //bbdd
 let urlDB;
 if(process.env.NODE_ENV === "dev"){
-    urlDB = 'mongodb://localhost:27017/myDataBase';
+    urlDB = 'mongodb://localhost:27017/muzzabd';
 }else{     
     urlDB = 'acá va la url de la bbdd productiva con su pass de usuario. ej: mlab, atlas';
 }

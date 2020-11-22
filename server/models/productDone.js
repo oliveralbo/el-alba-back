@@ -4,14 +4,14 @@ let uniqueValidator = require('mongoose-unique-validator'); // esta lib para man
 
 let Schema = mongoose.Schema;
 
-let rawMaterialSchema = new Schema({
+let productDoneSchema = new Schema({
 
     product:{
         type: String,
-        unique: [ true, 'No puede haber dos productos con el mismo nombre' ],
+        unique: [ true, 'No puede haber dos productos del mismo tipo' ],
         require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
     },
-    provider:{
+    type:{
         type: String,
         require: false    // el corchete para cambiar el mensaje default;
     },
@@ -21,14 +21,14 @@ let rawMaterialSchema = new Schema({
     },
     price:{
         type: Number,
-        require: false
+        require: [true, "El precio es necesario"]  
     },
 
 });
 
-rawMaterialSchema.plugin(uniqueValidator, { message: 'Error, se esperaba {PATH} sea unico.' });
+productDoneSchema.plugin(uniqueValidator, { message: 'Error, se esperaba {PATH} sea unico.' });
 
 
 
 
-module.exports = mongoose.model('MateriaPrima' , rawMaterialSchema)
+module.exports = mongoose.model('Producto' , productDoneSchema)
