@@ -7,6 +7,7 @@ app.use(require('./login'));
 app.use(require('./rawMaterial'));
 app.use(require('./productDone'));
 app.use(require('./recipes'));
-
+app.use(require('./provider'));
+app.use(require('./client'));
 
 module.exports = app;

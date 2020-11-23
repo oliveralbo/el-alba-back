@@ -97,8 +97,8 @@ class Controllers {
     let body = req.body;
 
     //en lugar de esto se puede usar el pick de la libreria underscore al reves, eligiendo los datos que SI se pueden modificar
-    delete body.password;
-    delete body.google;
+    body && body.password ? delete body.password : null;
+    body && body.google ? delete body.google : null;
 
     //findByIdAndUpdate --> funcion mongoose (id, body, options --> new: devuelve actualizado. sino, actualiza pero trae el sin actualizar. runValidators: valiada por schema  ,  callback )
     Model.findByIdAndUpdate(
