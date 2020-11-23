@@ -26,7 +26,7 @@ const authToken = (req, res, next) => {
 const validateRole = (req, res, next) => {
   let usuario = req.authUser;
 
-  if(usuario.role === 'ADMIN_ROLE'){
+  if(usuario.role === 'admin'){
     next()
   }else{
     return res.status(403).json({ ok: false, err: {message: 'Forbidden'} });

@@ -79,12 +79,11 @@ class Controllers {
         return res.status(400).json({ ok: false, err });
       }
       //usuarioDB.password = null; // solucion posible a q no evuelva el pass. no recomendada
-
-      if (req.authUser.email) {
+      if (req.authUser && req.authUser.name) {
         res.json({
           ok: true,
           registry: registryDB,
-          reqUser: req.authUser.email,
+          reqUser: req.authUser.name,
         });
       } else {
         res.json({ ok: true, registry: registryDB });

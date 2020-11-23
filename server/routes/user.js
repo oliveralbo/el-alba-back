@@ -4,8 +4,8 @@ const Usuario = require("../models/user");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "name surname email phone dni ";
-let objectRegistry = ["name", "surname", "email", "phone", "dni"];
+let configGet = "name surname email phone dni";
+let objectRegistry = ["name", "surname", "email", "phone", "dni", "role"];
 
 
 
@@ -24,17 +24,17 @@ app.get("/usuario/:id", authToken, (req, res) => {
 });
 
 //POST     -
-app.post("/usuario", [authToken, validateRole], function (req, res) {
+app.post("/usuario",(req, res) => {
   controllers.addRegisrty(Usuario, req, res);
 });
 
 //PUT
-app.put("/usuario/:id", [authToken, validateRole], function (req, res) {
+app.put("/usuario/:id", [authToken, validateRole],(req, res) => {
   controllers.editRegisrty(Usuario, req, res);
 });
 
 //DELETE
-app.delete("/usuario/:id", [authToken, validateRole], function (req, res) {
+app.delete("/usuario/:id", [authToken, validateRole],(req, res) => {
   controllers.deleteRegByState(Usuario, req, res);
 });
 

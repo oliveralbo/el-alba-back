@@ -30,7 +30,7 @@ let userSchema = new Schema({
         required: false
     },
     dni:{
-        type: Number,
+        type: String,
         required: [true, "El DNI es obligatorio"],
         unique: [ true, 'No puede haber dos DNI iguales' ],
         maxlength: [ 8, 'El DNI no puede exceder los 8 caracteres' ],
@@ -38,8 +38,8 @@ let userSchema = new Schema({
     },
     role:{
         type: String,
-        default : "employee",
-        enum: rolesValidos
+        enum: rolesValidos,
+        default : "employee"
     },
     state:{
         type: Boolean,
