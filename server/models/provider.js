@@ -30,6 +30,10 @@ let providersSchema = new Schema({
         type: String,
         require: false
     },
+    state:{
+        type: Boolean,
+        default: true 
+    }
 
 });
 

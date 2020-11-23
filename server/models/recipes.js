@@ -28,6 +28,10 @@ let recipesSchema = new Schema({
             require: [true, "Es necesaria la cantidad del producto"]    // el corchete para cambiar el mensaje default;
            }]     
     },
+    state:{
+        type: Boolean,
+        default: true  
+    }
     
 
 });

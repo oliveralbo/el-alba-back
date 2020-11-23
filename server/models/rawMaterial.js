@@ -23,6 +23,10 @@ let rawMaterialSchema = new Schema({
         type: Number,
         require: false
     },
+    state:{
+        type: Boolean,
+        default: true  
+    }
 
 });
 

@@ -23,7 +23,10 @@ let productDoneSchema = new Schema({
         type: Number,
         require: [true, "El precio es necesario"]  
     },
-
+    state:{
+        type: Boolean,
+        default: true  
+    }
 });
 
 productDoneSchema.plugin(uniqueValidator, { message: 'Error, se esperaba {PATH} sea unico.' });

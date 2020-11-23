@@ -22,7 +22,7 @@ class Controllers {
             err,
           });
         }
-
+console.log(records)
         Model.countDocuments({ state: true }, (err, quantity) => {
           res.json({
             ok: true,

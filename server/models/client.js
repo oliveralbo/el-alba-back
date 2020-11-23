@@ -70,7 +70,11 @@ let clientSchema = new Schema({
             type: String
         }
 
-    }]
+    }],
+    state:{
+        type: Boolean,
+        default: true   // ej: activo, inactivo(borrado virtual, se aconseja poner date a este tipo de valores)
+    }
 
 });
 
