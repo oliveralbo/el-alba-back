@@ -9,5 +9,6 @@ app.use(require('./productDone'));
 app.use(require('./recipes'));
 app.use(require('./provider'));
 app.use(require('./client'));
+app.use(require('./process'));
 
 module.exports = app;

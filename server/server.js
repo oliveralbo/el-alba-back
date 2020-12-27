@@ -3,14 +3,14 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 bodyParser = require("body-parser");
+const cors = require('cors');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-
+app.use(cors());
 app.use(require('./routes/index'))
-
 
 
 // estos mongo set son por versiones nuevas del mongoose. 
