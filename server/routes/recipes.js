@@ -3,6 +3,7 @@ const app = express();
 const Receta = require("../models/recipes");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
+const Recipes =require('../controllers/recipeControllers')
 
 let configGet = "product ingredients";
 let objectRegistry = ["product", "ingredients"];
@@ -26,6 +27,12 @@ app.get("/receta/:id", authToken, (req, res) => {
 app.post("/receta", [authToken, validateRole], function (req, res) {
   controllers.addRegisrty(Receta, req, res);
 });
+
+// app.post("/receta", [authToken, validateRole], (req, res) => {
+//   Recipes(req, res,Receta);
+// });
+
+
 
 //PUT
 app.put("/receta/:id", [authToken, validateRole], function (req, res) {

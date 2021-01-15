@@ -9,24 +9,18 @@ let recipesSchema = new Schema({
     product:{
         key: {
             type: String,
-            unique: [ true, 'No puede haber dos productos del mismo tipo' ],
+            unique: true,
             require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
        },
         value : {
             type: Number,
+            unique: false,
             require: [true, "Es necesaria la cantidad del producto"]    // el corchete para cambiar el mensaje default;
        }     
     },
     ingredients:{
-        keys: [{
-            type: String,
-            unique: [ true, 'No puede haber dos productos del mismo tipo' ],
-            require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
-        }],
-           values : [{
-            type: Number,
-            require: [true, "Es necesaria la cantidad del producto"]    // el corchete para cambiar el mensaje default;
-           }]     
+        keys: [{type: String, unique: false,}],
+        values : [{type: Number, unique: false,}],
     },
     state:{
         type: Boolean,
