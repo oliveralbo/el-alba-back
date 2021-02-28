@@ -36,7 +36,7 @@ class Controllers {
 
   getById = (Model, req, res) => {
     const { id } = req.params;
-
+//ver como hacer cliente datos base
     Model.findById(id).exec((err, registry) => {
       if (err) {
         return res.status(400).json({
@@ -58,6 +58,7 @@ class Controllers {
     let bodyArr = Object.keys(body);
     let bodyArrValues = Object.values(body);
     let registryObj = {};
+
 
     for (let i = 0; i < this.objectRegistry.length; i++) {
       if (this.objectRegistry[i] === bodyArr[i]) {

@@ -4,42 +4,14 @@ let uniqueValidator = require('mongoose-unique-validator'); // esta lib para man
 
 let Schema = mongoose.Schema;
 
-let clientSchema = new Schema({
 
 
 
-    name:{
-        type: String,
-        require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
-    },
-    company:{
-        type: String,
-        require: false
-    },
-    phone:{
-        type: Number,
-        require: false   
-    },
-    address:{
-        type: String,
-        require: false   
-    },
-    loaction:{
-        type: String,
-        require: false   
-    },
-    email:{
-        type: String,
-        require: false
-    },
-    account:{
-        type: Number,    
-    },
-    orders : [{
+const OrdersSchema = new Schema({
         day:{
             type: String,
             required: true,
-            maxlength: 8,
+            maxlength: 10,
             minlength: 6
         },
         amount:{
@@ -54,8 +26,10 @@ let clientSchema = new Schema({
             type: Number,
             required: true
         }
-    }],
-    payments:[{
+
+  });
+
+const PaymentsSchema = new Schema({
         day:{
             type: String,
             required: true,
@@ -70,7 +44,39 @@ let clientSchema = new Schema({
             type: String
         }
 
-    }],
+    });
+
+let clientSchema = new Schema({
+
+    name:{
+        type: String,
+        required: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
+    },
+    company:{
+        type: String,
+        required: false
+    },
+    phone:{
+        type: Number,
+        required: false   
+    },
+    address:{
+        type: String,
+        required: false   
+    },
+    loaction:{
+        type: String,
+        required: false   
+    },
+    email:{
+        type: String,
+        required: false
+    },
+    account:{
+        type: Number,    
+    },
+    orders:[OrdersSchema], 
+    payments:[PaymentsSchema],
     state:{
         type: Boolean,
         default: true   // ej: activo, inactivo(borrado virtual, se aconseja poner date a este tipo de valores)
@@ -102,7 +108,7 @@ module.exports = mongoose.model('Cliente' , clientSchema)
     location: "caba",
     email: "guimpi@supizza.com.ar",
     account: 7500,
-    pedidos : [{
+    orders : [{
       day : "13/2/18",
       amount: 350,
       product: "Muzza A",
@@ -123,7 +129,7 @@ module.exports = mongoose.model('Cliente' , clientSchema)
       product: "Muzza A",
       quantity: 10
     }],
-    Payments: [
+    payments: [
       {
         day : "13/2/18",
         amount: 350,

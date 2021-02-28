@@ -3,7 +3,7 @@ const app = express();
 const Receta = require("../models/recipes");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
-const Recipes =require('../controllers/recipeControllers')
+// const Recipes =require('../controllers/recipeControllers')
 
 let configGet = "product ingredients";
 let objectRegistry = ["product", "ingredients"];
