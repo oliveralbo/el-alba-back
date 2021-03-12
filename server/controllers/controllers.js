@@ -37,7 +37,7 @@ class Controllers {
   getById = (Model, req, res) => {
     const { id } = req.params;
 //ver como hacer cliente datos base
-    Model.findById(id).exec((err, registry) => {
+    Model.findById(id, this.configGet).exec((err, registry) => {
       if (err) {
         return res.status(400).json({
           ok: false,

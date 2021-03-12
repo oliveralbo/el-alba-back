@@ -46,10 +46,10 @@ class orders_PaymentsControllers {
           err,
         });
       }
-    const registryType = this.type === "payments" ? registry.payments : registry.orders
+      const registryType = this.type === "payments" ? registry.payments : registry.orders
       res.json({
         ok: true,
-        registry : registryType,
+        registry: registryType,
         reqUser: req.authUser.email,
       });
     });
@@ -59,9 +59,11 @@ class orders_PaymentsControllers {
 
     const body = req.body;
     const idClient = body._id
+    let registryFinal = {}
     delete body._id;
 
     if (idClient) {
+
       if (this.type === 'orders') {
         Model.updateOne({ _id: idClient }, {
           $push: {
@@ -70,7 +72,7 @@ class orders_PaymentsControllers {
         },
           (error) => {
             if (error) {
-              return rres.status(400).json({
+              return res.status(400).json({
                 ok: false,
                 error,
               });
@@ -87,28 +89,46 @@ class orders_PaymentsControllers {
 
 
       if (this.type === 'payments') {
-        Model.updateOne({ _id: idClient }, {
-          $push: {
-            'payments': body// aca orders and payments y ver dnd mas
-          }
-        },
-          (error) => {
-            if (error) {
-              return rres.status(400).json({
-                ok: false,
-                error,
-              });
-            } else {
+        try {
+          Model.updateOne({ _id: idClient }, {
+            $push: {
+              'payments': body// aca orders and payments y ver dnd mas
+            }
+          },
+            (error) => {
+              if (error) {
+                return res.status(400).json({
+                  ok: false,
+                  error,
+                });
+              }
+            }
+          )
+          Model.findByIdAndUpdate(
+            idClient,
+            { $inc: { "account": -body.amount } },
+            { new: true, runValidators: true },
+            (err, registry) => {
+              if (err) {
+                return res.status(400).json({ ok: false, err });
+              }
+              let lastPay = registry.payments.pop()
+              registryFinal.payment = lastPay;
+              registryFinal.account = registry.account
               return res.json({
                 ok: true,
-                // registry,
+                registry: registryFinal,
                 reqUser: req.authUser.email,
               });
-            }
-          }
-        )
-      }
+            },
+          );
 
+
+
+        } catch (e) {
+          console.error(e)
+        }
+      }
 
     } else {
       return res.status(400).json({
