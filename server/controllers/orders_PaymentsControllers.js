@@ -8,34 +8,39 @@ class orders_PaymentsControllers {
     this.type = type
   }
 
-  getAll = (Model, req, res) => {
-    let desde = Number(req.query.desde) || 0;
-    let limite = Number(req.query.limite) || 0;
+  // getAll(Model, req, res){
+  //   let desde = Number(req.query.desde) || 0;
+  //   let limite = Number(req.query.limite) || 0;
 
 
-    Model.find({ state: true }, this.configGet) // el string segundo paramatro filtra los datos que trae. son el parametro trae todo por default
-      .skip(desde) // los que salta al emepzar, o sea 'desde'
-      .limit(limite) //la cantidad que trae
-      .exec((err, records) => {
-        if (err) {
-          return res.status(400).json({
-            ok: false,
-            err,
-          });
-        }
+  //   Model.find({ state: true }, this.configGet) // el string segundo paramatro filtra los datos que trae. son el parametro trae todo por default
+  //     .skip(desde) // los que salta al emepzar, o sea 'desde'
+  //     .limit(limite) //la cantidad que trae
+  //     .exec((err, records) => {
+  //       if (err) {
+  //         return res.status(400).json({
+  //           ok: false,
+  //           err,
+  //         });
+  //       }
 
-        Model.countDocuments({ state: true }, (err, quantity) => {
-          res.json({
-            ok: true,
-            records,
-            registroTotal: quantity,
-            reqUser: req.authUser.email,
-          });
-        });
-      });
-  };
+  //       Model.countDocuments({ state: true }, (err, quantity) => {
+  //         res.json({
+  //           ok: true,
+  //           records,
+  //           registroTotal: quantity,
+  //           reqUser: req.authUser.email,
+  //         });
+  //       });
+  //     });
+  // };
 
-  getById = (Model, req, res) => {
+
+
+
+
+  //es el getAll de pedidos y ordenes por id de cliente. no trae una.
+  getById(Model, req, res) {
     const { id } = req.params;
 
 
@@ -55,7 +60,13 @@ class orders_PaymentsControllers {
     });
   };
 
-  addRegisrty = async (Model, req, res) => {
+
+
+
+
+
+  //agrega pedidos y pagos x id de cliente
+  async addRegisrty  (Model, req, res)  {
 
     const body = req.body;
     const idClient = body._id
@@ -65,9 +76,11 @@ class orders_PaymentsControllers {
     if (idClient) {
 
       if (this.type === 'orders') {
+        console.log(body.amount)
         Model.updateOne({ _id: idClient }, {
+          $inc: {"account" :body.amount},
           $push: {
-            'orders': body// aca orders and payments y ver dnd mas
+            'orders': body// guarda el pedido y suma a la cta. ! !!
           }
         },
           (error) => {
@@ -122,9 +135,6 @@ class orders_PaymentsControllers {
               });
             },
           );
-
-
-
         } catch (e) {
           console.error(e)
         }
@@ -133,7 +143,7 @@ class orders_PaymentsControllers {
     } else {
       return res.status(400).json({
         ok: false,
-        error,
+        error:"no hay idClient",
       });
     }
 
@@ -143,35 +153,40 @@ class orders_PaymentsControllers {
 
 
 
-  deleteRegByState = (Model, req, res) => {
-    let id = req.params.id;
-    let changeState = {
-      state: false,
-    };
 
-    Model.findByIdAndUpdate(
-      id,
-      changeState,
-      { new: true },
-      (err, deleteRegisrty) => {
-        if (err) {
-          return res.status(400).json({ ok: false, err });
-        }
 
-        if (!deleteRegisrty) {
-          return res
-            .status(400)
-            .json({ ok: false, err: { message: "Registry not found" } });
-        }
+  
 
-        res.json({
-          ok: true,
-          deleteRegisrty,
-          reqUser: req.authUser.email,
-        });
-      },
-    );
-  };
+// //no se 
+//   deleteRegByState (Model, req, res)  {
+//     let id = req.params.id;
+//     let changeState = {
+//       state: false,
+//     };
+
+//     Model.findByIdAndUpdate(
+//       id,
+//       changeState,
+//       { new: true },
+//       (err, deleteRegisrty) => {
+//         if (err) {
+//           return res.status(400).json({ ok: false, err });
+//         }
+
+//         if (!deleteRegisrty) {
+//           return res
+//             .status(400)
+//             .json({ ok: false, err: { message: "Registry not found" } });
+//         }
+
+//         res.json({
+//           ok: true,
+//           deleteRegisrty,
+//           reqUser: req.authUser.email,
+//         });
+//       },
+//     );
+//   };
 
 }
 

@@ -19,8 +19,8 @@ let recipesSchema = new Schema({
        }     
     },
     ingredients:{
-        keys: [{type: String, unique: false,}],
-        values : [{type: Number, unique: false,}],
+        keys: [{type: String, unique: false}],
+        values : [{type: Number, unique: false}],
     },
     state:{
         type: Boolean,

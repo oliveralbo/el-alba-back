@@ -18,16 +18,12 @@ const OrdersSchema = new Schema({
             type: Number,
             required: true
         },
-        product:{
-            type: String,
-            required: true
-        },
-        quantity:{
-            type: Number,
-            required: true
-        }
-
-  });
+        product:         
+            [{type: String, unique: false, required: true}]
+        ,
+        quantity:
+            [{type: String, unique: false, required: true}]
+    });
 
 const PaymentsSchema = new Schema({
         day:{
@@ -94,53 +90,3 @@ module.exports = mongoose.model('Cliente' , clientSchema)
 
 
 
-
-
-
-
-    /**
-     * 
-     *   {
-    name: "Diego Perez",
-    company: "Guimpi",
-    phone: 45684546,
-    address: "E. Lamarca 2021",
-    location: "caba",
-    email: "guimpi@supizza.com.ar",
-    account: 7500,
-    orders : [{
-      day : "13/2/18",
-      amount: 350,
-      product: "Muzza A",
-      quantity: 10
-    },{
-      day : "13/2/18",
-      amount: 350,
-      product: "Muzza A",
-      quantity: 10
-    },{
-      day : "13/2/18",
-      amount: 350,
-      product: "Muzza A",
-      quantity: 10
-    },{
-      day : "13/2/18",
-      amount: 350,
-      product: "Muzza A",
-      quantity: 10
-    }],
-    payments: [
-      {
-        day : "13/2/18",
-        amount: 350,
-        comments: ""
-      }
-    ]
-
-  },
-
-     * 
-     * 
-     * 
-     * 
-     */

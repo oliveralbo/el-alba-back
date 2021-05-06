@@ -7,7 +7,7 @@ class Controllers {
     this.objectRegistry = objectRegistry;
   }
 
-  getAll = (Model, req, res) => {
+  getAll(Model, req, res){
     let desde = Number(req.query.desde) || 0;
     let limite = Number(req.query.limite) || 0;
   
@@ -34,7 +34,7 @@ class Controllers {
       });
   };
 
-  getById = (Model, req, res) => {
+  getById  (Model, req, res)  {
     const { id } = req.params;
 //ver como hacer cliente datos base
     Model.findById(id, this.configGet).exec((err, registry) => {
@@ -53,7 +53,7 @@ class Controllers {
     });
   };
 
-  addRegisrty = (Model, req, res) => {
+  addRegisrty  (Model, req, res)  {
     let body = req.body;
     let bodyArr = Object.keys(body);
     let bodyArrValues = Object.values(body);
@@ -92,7 +92,7 @@ class Controllers {
     });
   };
 
-  editRegisrty = (Model, req, res) => {
+  editRegisrty  (Model, req, res)  {
     let id = req.params.id;
     let body = req.body;
 
@@ -119,7 +119,7 @@ class Controllers {
     );
   };
 
-  deleteRegByState = (Model, req, res) => {
+  deleteRegByState  (Model, req, res)  {
     let id = req.params.id;
     let changeState = {
       state: false,
@@ -149,7 +149,7 @@ class Controllers {
     );
   };
 
-  realDelete = (Model, req, res) => {
+  realDelete (Model, req, res) {
     let id = req.params.id;
 
     Model.findByIdAndRemove(id, (err, deleteRegisrty) => {
