@@ -4,8 +4,8 @@ const MateriaPrima = require("../models/rawMaterial");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "product provider quantity price";
-let objectRegistry = ["product", "provider", "quantity", "price"];
+let configGet = "product provider quantity price type";
+let objectRegistry = ["product", "provider", "quantity", "price", "type"];
 
 
 
