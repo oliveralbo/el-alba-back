@@ -59,7 +59,6 @@ class Controllers {
     let bodyArrValues = Object.values(body);
     let registryObj = {};
 
-
     for (let i = 0; i < this.objectRegistry.length; i++) {
       if (this.objectRegistry[i] === bodyArr[i]) {
         //en el caso de necesitar encriptar un dato de cualquier Modelo agregado, configurarlo acá
@@ -67,13 +66,14 @@ class Controllers {
           registryObj[this.objectRegistry[i]] = bcrypt.hashSync(
             bodyArrValues[i],
             10,
-          );
-        } else {
-          registryObj[this.objectRegistry[i]] = bodyArrValues[i];
+            );
+          } else {
+            registryObj[this.objectRegistry[i]] = bodyArrValues[i];
+          }
         }
       }
-    }
-    let registry = new Model(registryObj);
+      let registry = new Model(registryObj);
+      console.log(registry)
 
     registry.save((err, registryDB) => {
       if (err) {

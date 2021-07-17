@@ -7,23 +7,29 @@ let Schema = mongoose.Schema;
 
 
 
-const OrdersSchema = new Schema({
-        day:{
-            type: String,
-            required: true,
-            maxlength: 10,
-            minlength: 6
-        },
-        amount:{
-            type: Number,
-            required: true
-        },
-        product:         
-            [{type: String, unique: false, required: true}]
-        ,
-        quantity:
-            [{type: String, unique: false, required: true}]
-    });
+// const OrdersSchema = new Schema({
+//         day:{
+//             type: String,
+//             required: true,
+//             maxlength: 10,
+//             minlength: 6
+//         },
+//         amount:{
+//             type: Number,
+//             required: true
+//         },
+//         product:         
+//             [{type: String, unique: false, required: true}]
+//         ,
+//         quantity:
+//             [{type: String, unique: false, required: true}]
+//         ,
+//         delivered:{
+//             type:Boolean,
+//             default:false,
+
+//         }
+//     });
 
 const PaymentsSchema = new Schema({
         day:{
@@ -71,7 +77,7 @@ let clientSchema = new Schema({
     account:{
         type: Number,    
     },
-    orders:[OrdersSchema], 
+    // orders:[OrdersSchema], 
     payments:[PaymentsSchema],
     state:{
         type: Boolean,

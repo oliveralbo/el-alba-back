@@ -12,14 +12,14 @@ const Login = (req, res, Usuario) => {
       if (!usuarioDB) {
         return res.status(400).json({
           ok: false,
-          err: { message: "usuario incorrecto" },
+          err: { message: "Usuario incorrecto" },
         });
       }
      
       if (body.dni !== usuarioDB.dni) {
         return res.status(400).json({
           ok: false,
-          err: { message: "dni incorrecto" },
+          err: { message: "Documento incorrecto" },
         });
       }
      
