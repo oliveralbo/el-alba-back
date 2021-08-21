@@ -60,6 +60,7 @@ class Controllers {
     let registryObj = {};
 
     for (let i = 0; i < this.objectRegistry.length; i++) {
+    
       if (this.objectRegistry[i] === bodyArr[i]) {
         //en el caso de necesitar encriptar un dato de cualquier Modelo agregado, configurarlo acá
         if (this.objectRegistry[i] === "password") {

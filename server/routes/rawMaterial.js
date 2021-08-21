@@ -4,8 +4,8 @@ const MateriaPrima = require("../models/rawMaterial");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "product provider quantity price type";
-let objectRegistry = ["product", "provider", "quantity", "price", "type"];
+let configGet = "product quantity tipo price";
+let objectRegistry = ["product", "quantity", "tipo" ,"price"];
 
 
 
@@ -25,6 +25,7 @@ app.get("/materiaprima/:id", authToken, (req, res) => {
 
 //POST     -
 app.post("/materiaprima", [authToken, validateRole], function (req, res) {
+  console.log(req)
   controllers.addRegisrty(MateriaPrima, req, res);
 });
 

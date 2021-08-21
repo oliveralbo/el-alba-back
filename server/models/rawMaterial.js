@@ -17,13 +17,15 @@ let rawMaterialSchema = new Schema({
         unique: [ true, 'No puede haber dos productos con el mismo nombre' ],
         require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
     },
-    provider:{
-        type: String,
-        require: false    // el corchete para cambiar el mensaje default;
-    },
     quantity:{
         type: Number,
-        required: [true, "El cantidad es necesaria"],  // el corchete para cambiar el mensaje default;      
+        required: [true, "La cantidad es necesaria"],  // el corchete para cambiar el mensaje default;      
+    },
+    tipo:{
+        type: String,
+        enum: tiposValidos,
+        default:"Kilogramos",
+        // require: [true, "El tipo es necesario"]   
     },
     price:{
         type: Number,
@@ -33,12 +35,6 @@ let rawMaterialSchema = new Schema({
         type: Boolean,
         default: true  
     },
-    type:{
-        type: String,
-        enum: tiposValidos,
-        default:"",
-        require: [true, "El tipo es necesario"]   
-    }
 
 });
 

@@ -13,11 +13,11 @@ let productDoneSchema = new Schema({
     },
     type:{
         type: String,
-        require: false    // el corchete para cambiar el mensaje default;
+        default:"kg",
     },
     quantity:{
         type: Number,
-        required: [true, "El cantidad es necesaria"],  // el corchete para cambiar el mensaje default;      
+        required: false,  
     },
     price:{
         type: Number,
