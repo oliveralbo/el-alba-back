@@ -25,7 +25,6 @@ app.get("/materiaprima/:id", authToken, (req, res) => {
 
 //POST     -
 app.post("/materiaprima", [authToken, validateRole], function (req, res) {
-  console.log(req)
   controllers.addRegisrty(MateriaPrima, req, res);
 });
 
@@ -36,7 +35,7 @@ app.put("/materiaprima/:id", [authToken, validateRole], function (req, res) {
 
 //DELETE
 app.delete("/materiaprima/:id", [authToken, validateRole], function (req, res) {
-  controllers.deleteRegByState(MateriaPrima, req, res);
+  controllers.realDelete(MateriaPrima, req, res);
 });
 
 module.exports = app;

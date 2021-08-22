@@ -105,7 +105,7 @@ class Controllers {
     Model.findByIdAndUpdate(
       id,
       body,
-      { new: true, runValidators: true },
+      { new: true, runValidators: true, context: 'query' },
       (err, registryDB) => {
         if (err) {
           return res.status(400).json({ ok: false, err });
