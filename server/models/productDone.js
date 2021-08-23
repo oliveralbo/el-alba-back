@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 let uniqueValidator = require('mongoose-unique-validator'); // esta lib para manejar el error de unique
 
 
+
+let tiposValidos = {
+    values: ["Kilogramos", "Litros"],
+    message: '{VALUE}, no es un tipo valido'
+}
+
 let Schema = mongoose.Schema;
 
 let productDoneSchema = new Schema({
@@ -11,10 +17,7 @@ let productDoneSchema = new Schema({
         unique: [ true, 'No puede haber dos productos del mismo tipo' ],
         require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
     },
-    type:{
-        type: String,
-        default:"kg",
-    },
+
     quantity:{
         type: Number,
         required: false,  
@@ -22,6 +25,11 @@ let productDoneSchema = new Schema({
     price:{
         type: Number,
         require: [true, "El precio es necesario"]  
+    },
+    tipo:{
+        type: String,
+        enum: tiposValidos,
+        default:"Kilogramos", 
     },
     state:{
         type: Boolean,

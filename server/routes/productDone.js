@@ -4,8 +4,8 @@ const Producto = require("../models/productDone");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "product type quantity price";
-let objectRegistry = ["product", "type", "quantity", "price"];
+let configGet = "product quantity tipo price";
+let objectRegistry = ["product", "quantity", "tipo" ,"price"];
 
 
 
@@ -35,7 +35,7 @@ app.put("/producto/:id", [authToken, validateRole], function (req, res) {
 
 //DELETE
 app.delete("/producto/:id", [authToken, validateRole], function (req, res) {
-  controllers.deleteRegByState(Producto, req, res);
+  controllers.realDelete(Producto, req, res);
 });
 
 module.exports = app;

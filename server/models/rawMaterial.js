@@ -24,8 +24,7 @@ let rawMaterialSchema = new Schema({
     tipo:{
         type: String,
         enum: tiposValidos,
-        default:"Kilogramos",
-        // require: [true, "El tipo es necesario"]   
+        default:"Kilogramos", 
     },
     price:{
         type: Number,
