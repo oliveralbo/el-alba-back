@@ -21,17 +21,17 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "seba",
+							"value": "pepe",
 							"type": "text"
 						},
 						{
 							"key": "surname",
-							"value": "deElAlba",
+							"value": "pepe",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "seba@elalba.com",
+							"value": "pepe22@pepe22.com",
 							"type": "text"
 						},
 						{
@@ -41,7 +41,7 @@
 						},
 						{
 							"key": "dni",
-							"value": "11111111",
+							"value": "22222222",
 							"type": "text"
 						},
 						{
@@ -52,10 +52,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/usuario",
+					"raw": "http://localhost:5000/usuario",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"localhost"
 					],
+					"port": "5000",
 					"path": [
 						"usuario"
 					]
@@ -268,7 +270,7 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MDYxNzI1ODQsImV4cCI6MTYwNzc3ODc2MH0.CY0jT94YO7wPQ1pv1eelKwQ0-LIXqbaczEQMQbYDo6o",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjY1Njc4MTgsImV4cCI6MTYyODE5NDM4NX0.YakgJb728HkKqsjnoYtrcnqJ4Iw500_hPCCGyjmO_tQ",
 						"type": "text"
 					}
 				],
@@ -283,12 +285,14 @@
 						{
 							"key": "type",
 							"value": "A",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "quantity",
 							"value": "55",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "price",
@@ -325,7 +329,7 @@
 					"urlencoded": [
 						{
 							"key": "product",
-							"value": "masaNueva",
+							"value": "masaNueva\n",
 							"type": "text"
 						},
 						{
@@ -341,6 +345,11 @@
 						{
 							"key": "price",
 							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "Kilogramos",
 							"type": "text"
 						}
 					]
@@ -360,19 +369,19 @@
 			"response": []
 		},
 		{
-			"name": "PUT Proceso",
+			"name": "PUT proceso",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MDk4NDc2OTMsImV4cCI6MTYxMTQ1NzU0Mn0.q45qHRZNMzW1TEY1I8Jb2qv1aWSgnUTie_IKYqaKre8",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI2MTI2ZTk2ZjI5NzA5YzMwNDRkMTFmZDUiLCJuYW1lIjoiZGllZ28iLCJzdXJuYW1lIjoiZGlleiIsImVtYWlsIjoiZGllZ29tQGdtYWlsLmNvbSIsInBob25lIjoiMTEzNDQ1NjU3NiIsImRuaSI6IjIyMjIyMjIyIiwiX192IjowfSwiaWF0IjoxNjMwMjY1ODc2LCJleHAiOjE2MzE4OTYxNDR9.2gssJHdrHj0NTe-IUsTN_nAJOnXecyytVqUDF6I4eiI",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n \"mp\":{\n  \"5fd4230aaf6c4b1cf5ddde3f\":12,\n  \"5fd42363af6c4b1cf5ddde40\":12\n},\n\"pro\":{\n  \"5fd41402af6c4b1cf5ddde3e\": 5\n}\n}",
+					"raw": "{\n \"mp\":{\n  \"6126eb5829709c3044d11fd6\":2,\n  \"6126eb7d29709c3044d11fd7\":10\n},\n\"pro\":{\n  \"612be22dc8a3e43288c5fd46\": 5\n}\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -497,13 +506,13 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MTY4MDQyMzUsImV4cCI6MTYxODQyMTA0MX0.QKL0QxtoNwIPUwBPF8K0qlaAFOGmLOGpDTc-vnmo6vc",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjE1NTM0NDIsImV4cCI6MTYyMzE3NDk5OH0.u5sqxeaC7DBbfYhYJNsqnodUHd6bU4Th8bBiwoQL7qk",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"_id\": \"6033018105abc35ad623c298\",\n    \"day\": \"28/03/2021\",\n    \"amount\": 3000,\n    \"product\": \"Muzza A\",\n    \"quantity\": 4\n}",
+					"raw": "{\n    \"_id\": \"6032ef4fd9ce145777a15b8b\",\n    \"day\": \"30/05/2021\",\n    \"amount\": 700,\n    \"product\": \"Muzza C\",\n    \"quantity\": 1\n   \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -605,30 +614,6 @@
 			"response": []
 		},
 		{
-			"name": "GET get client by id",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MTQ1NTY0MjcsImV4cCI6MTYxNjE3MDk4MH0.hECz9-CRHuk-Qh3FPY5ZcB5KHWKbYCsettFd8aE6F1A",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/cliente/6033018105abc35ad623c298",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"cliente",
-						"6033018105abc35ad623c298"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "GET get all payments by id",
 			"request": {
 				"method": "GET",
@@ -654,7 +639,31 @@
 			"response": []
 		},
 		{
-			"name": "GET get all RawMaterial",
+			"name": "GET get client by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MTQ1NTY0MjcsImV4cCI6MTYxNjE3MDk4MH0.hECz9-CRHuk-Qh3FPY5ZcB5KHWKbYCsettFd8aE6F1A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cliente/6033018105abc35ad623c298",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cliente",
+						"6033018105abc35ad623c298"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET get all Products",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -665,12 +674,138 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/materiasprimas",
+					"raw": "{{url}}/materiasprimas?token=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjE1NTM0NDIsImV4cCI6MTYyMzE3NDk5OH0.u5sqxeaC7DBbfYhYJNsqnodUHd6bU4Th8bBiwoQL7qk",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"materiasprimas"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjE1NTM0NDIsImV4cCI6MTYyMzE3NDk5OH0.u5sqxeaC7DBbfYhYJNsqnodUHd6bU4Th8bBiwoQL7qk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET get all no entregados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjE1NTM0NDIsImV4cCI6MTYyMzE3NDk5OH0.u5sqxeaC7DBbfYhYJNsqnodUHd6bU4Th8bBiwoQL7qk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/clientes/noentregados",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"clientes",
+						"noentregados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT cliente suma cta x entrega",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmRkNGEwOGExZTFlZTBlZjc3ODNkNTgiLCJuYW1lIjoicGVwZSIsInN1cm5hbWUiOiJwZXBlIiwiZW1haWwiOiJwZXBlQHBlcGUuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTEzMzMiLCJfX3YiOjB9LCJpYXQiOjE2MjYzMDg0NTMsImV4cCI6MTYyNzkzNDc2NH0.1IBMUc48UTB6HpzMyuhlyntyA4eGjuVxSl-Geozx9Qg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"amount\": 1000}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cliente/entrega/6032efa02e7b5757c9aee888",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cliente",
+						"entrega",
+						"6032efa02e7b5757c9aee888"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET get all Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjY1Njc4MTgsImV4cCI6MTYyODE5NDM4NX0.YakgJb728HkKqsjnoYtrcnqJ4Iw500_hPCCGyjmO_tQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/productos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"productos"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MjE1NTM0NDIsImV4cCI6MTYyMzE3NDk5OH0.u5sqxeaC7DBbfYhYJNsqnodUHd6bU4Th8bBiwoQL7qk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT proceso",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InJvbGUiOiJhZG1pbiIsInN0YXRlIjp0cnVlLCJfaWQiOiI1ZmJjM2Y4Nzk3YjRjMzE4OGNjZjRiMDAiLCJuYW1lIjoic2ViYSIsInN1cm5hbWUiOiJkZUVsQWxiYSIsImVtYWlsIjoic2ViYUBlbGFsYmEuY29tIiwicGhvbmUiOiIxMTM0NDU2NTc2IiwiZG5pIjoiMTExMTExMTEiLCJfX3YiOjB9LCJpYXQiOjE2MDk4NDc2OTMsImV4cCI6MTYxMTQ1NzU0Mn0.q45qHRZNMzW1TEY1I8Jb2qv1aWSgnUTie_IKYqaKre8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mp\":{\n  \"5fd4230aaf6c4b1cf5ddde3f\":12,\n  \"5fd42363af6c4b1cf5ddde40\":12\n},\n\"pro\":{\n  \"5fd41402af6c4b1cf5ddde3e\": 5\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/proceso",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"proceso"
 					]
 				}
 			},
