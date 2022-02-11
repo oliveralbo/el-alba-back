@@ -10,7 +10,7 @@ let recipesSchema = new Schema({
         key: {
             type: String,
             unique: true,
-            require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
+            require: [true, "El nombre es necesario y debe ser unico"]    // el corchete para cambiar el mensaje default;
        },
         value : {
             type: Number,
@@ -30,7 +30,7 @@ let recipesSchema = new Schema({
 
 });
 
-recipesSchema.plugin(uniqueValidator, { message: 'Error, se esperaba {PATH} sea unico.' });
+recipesSchema.plugin(uniqueValidator, { message: 'Error, no puede repetir la receta.' });
 
 
 

@@ -23,6 +23,11 @@ app.get("/receta/:id", authToken, (req, res) => {
   controllers.getById(Receta, req, res);
 });
 
+//GET BY NAME
+app.get("/receta/nombre/:name", authToken, (req, res) => {
+  controllers.getRecipeByName(Receta, req, res);
+});
+
 //POST     -
 app.post("/receta", [authToken, validateRole], function (req, res) {
   controllers.addRegisrty(Receta, req, res);
@@ -40,8 +45,8 @@ app.put("/receta/:id", [authToken, validateRole], function (req, res) {
 });
 
 //DELETE
-app.delete("/materiaprima/:id", [authToken, validateRole], function (req, res) {
-  controllers.deleteRegByState(Receta, req, res);
+app.delete("/receta/:id", [authToken, validateRole], function (req, res) {
+  controllers.realDelete(Receta, req, res);
 });
 
 module.exports = app;

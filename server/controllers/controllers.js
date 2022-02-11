@@ -53,6 +53,26 @@ class Controllers {
     });
   };
 
+  getRecipeByName  (Model, req, res)  {
+    const { name } = req.params;
+//ver como hacer cliente datos base
+    const decodeName = decodeURIComponent(name)
+    Model.findOne({ 'product.key': decodeName }).exec((err, registry) => {
+      if (err) {
+        return res.status(400).json({
+          ok: false,
+          err,
+        });
+      }
+
+      res.json({
+        ok: true,
+        registry,
+        reqUser: req.authUser.email,
+      });
+    });
+  };
+
   addRegisrty  (Model, req, res)  {
     let body = req.body;
     let bodyArr = Object.keys(body);
