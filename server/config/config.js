@@ -5,7 +5,8 @@ process.env.PORT = process.env.PORT || 5000
 
 /****************vencimiento del token *****************/
 //60 seg * 60 min * nHS * nDias
-process.env.VENC_TOKEN = Math.floor(Date.now() / 1000) + (60 * 60);
+// process.env.VENC_TOKEN = Math.floor(Date.now() / 1000) + (60 * 60);
+process.env.VENC_TOKEN = Math.floor(Date.now() / 1000) + (60);
 
 
 /****************secret token *****************/

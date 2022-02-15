@@ -20,21 +20,25 @@ let userSchema = new Schema({
         type: String,
         require: [true, "El nombre es necesario"]    // el corchete para cambiar el mensaje default;
     },
-    email:{
-        type: String,
-        unique: [ true, 'No puede haber dos e-mails iguales' ],
-        required: [true, "El e-mail es necesario"],  // el corchete para cambiar el mensaje default;      
-    },
-    phone:{
-        type: String,
-        required: false
-    },
     dni:{
         type: String,
         required: [true, "El DNI es obligatorio"],
         unique: [ true, 'No puede haber dos DNI iguales' ],
         maxlength: [ 8, 'El DNI no puede exceder los 8 caracteres' ],
         minlength: [ 7, 'El DNI no puede tener menos de 7 caracteres' ]
+    },
+    phone:{
+        type: String,
+        required: false
+    },
+    email:{
+        type: String,
+        unique: [ true, 'No puede haber dos e-mails iguales' ],
+        required: [true, "El e-mail es necesario"],  // el corchete para cambiar el mensaje default;      
+    },
+    password:{
+        type: String,
+        required: [true, "La contraseña es obligatoria"]    // el corchete para cambiar el mensaje default;
     },
     role:{
         type: String,

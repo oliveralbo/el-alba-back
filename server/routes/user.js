@@ -4,8 +4,8 @@ const Usuario = require("../models/user");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "name surname email phone dni";
-let objectRegistry = ["name", "surname", "email", "phone", "dni", "role"];
+let configGet = "name surname dni phone email";
+let objectRegistry = ["name", "surname","dni",  "phone", "email", "password", "role"];
 
 
 
@@ -25,6 +25,15 @@ app.get("/usuario/:id", authToken, (req, res) => {
 
 //POST     -
 app.post("/usuario",(req, res) => {
+  let temp = {};
+    objectRegistry.forEach(item=>{
+      for (const x in req.body) {
+        if(x === item){
+          temp[x] = req.body[x]
+        }
+      }
+    })
+    req.body = temp
   controllers.addRegisrty(Usuario, req, res);
 });
 
