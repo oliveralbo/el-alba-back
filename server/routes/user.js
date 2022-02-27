@@ -4,7 +4,7 @@ const Usuario = require("../models/user");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
 
-let configGet = "name surname dni phone email";
+let configGet = "name surname dni phone email password role";
 let objectRegistry = ["name", "surname","dni",  "phone", "email", "password", "role"];
 
 
@@ -25,7 +25,7 @@ app.get("/usuario/:id", authToken, (req, res) => {
 
 //POST     -
 app.post("/usuario",(req, res) => {
-  let temp = {};
+  let temp = {}; // esto es para acomodar el orden de los items del objeto
     objectRegistry.forEach(item=>{
       for (const x in req.body) {
         if(x === item){

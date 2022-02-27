@@ -100,9 +100,9 @@ class Controllers {
       if (err) {
         return res.status(400).json({ ok: false, err });
       }
-      if(registryDB?.password){
-        registryDB.password = "-"; // solucion posible a q no evuelva el pass. no recomendada
-      } 
+      // if(registryDB?.password){
+      //   registryDB.password = "-"; // solucion posible a q no evuelva el pass. no recomendada
+      // } 
       if (req.authUser && req.authUser.name) {
         res.json({
           ok: true,
