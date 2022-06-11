@@ -38,7 +38,8 @@ app.post("/usuario",(req, res) => {
 });
 
 //PUT
-app.put("/usuario/:id", [authToken, validateRole],(req, res) => {
+// app.put("/usuario/:id", [authToken, validateRole],(req, res) => {
+app.put("/usuario/:id", [authToken],(req, res) => {
   controllers.editRegisrty(Usuario, req, res);
 });
 
