@@ -93,8 +93,8 @@ class Controllers {
           }
         }
       }
-      let registry = new Model(registryObj);
-      // console.log(registry)
+      // console.log("es aca registryObj ", registryObj)
+      const registry = new Model(registryObj);
 
     registry.save((err, registryDB) => {
       if (err) {
