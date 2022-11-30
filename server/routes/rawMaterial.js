@@ -3,6 +3,7 @@ const app = express();
 const MateriaPrima = require("../models/rawMaterial");
 const { authToken, validateRole } = require("../middlewares/auth");
 const Controllers = require("../controllers/controllers");
+const { actualizarMateriaPrima } = require('../controllers/materiaPrima');
 
 let configGet = "product quantity tipo price";
 let objectRegistry = ["product", "quantity", "tipo" ,"price"];
@@ -29,9 +30,14 @@ app.post("/materiaprima", [authToken, validateRole], function (req, res) {
 });
 
 //PUT
-app.put("/materiaprima/:id", [authToken, validateRole], function (req, res) {
-  controllers.editRegisrty(MateriaPrima, req, res);
-});
+// app.put("/materiaprima/:id", [authToken, validateRole], function (req, res) {
+//   controllers.editRegisrty(MateriaPrima, req, res);
+// });
+app.put(
+  '/materiaprima/:id',
+  [authToken, validateRole],
+  actualizarMateriaPrima
+)
 
 //DELETE
 app.delete("/materiaprima/:id", [authToken, validateRole], function (req, res) {
