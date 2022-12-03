@@ -19,8 +19,6 @@ const Login = (req, res, Usuario) => {
           err: { message: "Usuario incorrecto" },
         });
       }
-     
-
       
       const validPassword = bcrypt.compareSync( body.password, usuarioDB.password );
 
