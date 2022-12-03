@@ -1,13 +1,17 @@
 let jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
 
 const Login = (req, res, Usuario) => {
     let body = req.body;
 
+    
+    
     Usuario.findOne({ name: body.name }, (err, usuarioDB) => {
       if (err) {
         return res.status(500).json({ ok: false, err });
       }
-  
+      
+      
   
       if (!usuarioDB) {
         return res.status(400).json({
@@ -16,11 +20,15 @@ const Login = (req, res, Usuario) => {
         });
       }
      
-      if (body.dni !== usuarioDB.dni) {
-        return res.status(400).json({
-          ok: false,
-          err: { message: "Documento incorrecto" },
-        });
+
+      
+      const validPassword = bcrypt.compareSync( body.password, usuarioDB.password );
+
+      if ( !validPassword ) {
+          return res.status(400).json({
+              ok: false,
+              err: { message: "Password incorrecto" },
+          });
       }
      
       if (!usuarioDB.state) {
